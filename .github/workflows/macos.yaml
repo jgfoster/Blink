@@ -1,15 +1,12 @@
-name: macos
+---
+name: Arduino CI (macOS)
 
 on: [push, pull_request]
 
 jobs:
-  runTest: 
+  arduino_ci:
     runs-on: macos-latest
+
     steps:
       - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-        with: 
-          ruby-version: 2.6
-      - run: |
-          bundle install
-          bundle exec arduino_ci.rb
+      - uses: Arduino-CI/action@stable-1.x
